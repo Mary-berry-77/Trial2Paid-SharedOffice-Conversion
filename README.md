@@ -1,4 +1,4 @@
-## 📘 Shared Office Trial Conversion Analysis
+# 📘 Shared Office Trial Conversion Analysis
 
 This project analyses behavioural log data from a shared office provider to uncover key drivers of trial-to-paid user conversion and proposes actionable strategies based on user segmentation.
 
@@ -6,137 +6,165 @@ This project analyses behavioural log data from a shared office provider to unco
 
 ### 🧭 TL;DR (Quick Summary)
 
-#### ❗ Conversion Issue
+#### ❗ Conversion Issue  
 From 2021 to 2023, the trial-to-paid conversion rate fell from **53% to 23%**, despite stable trial sign-ups.  
-The key bottleneck lies **after their visit**, not before.
+The key bottleneck lies **after the first visit**, not before — indicating a product or experience-related friction rather than a marketing issue.
 
-#### 🔍 Behavioural Shift
-Feature analysis reveals a shift in conversion drivers:
-- **Pandemic era**: Usage quantity (longer stays, more visits)
-- **Post-pandemic**: Intent signals like **visit timing (weekday/afternoon)** and **delayed first visit (1–2 days)**
+#### 🔍 Behavioural Shift  
+Conversion signals shifted over time:  
+- **Pandemic era**: Usage volume (longer stays, more visits) was key  
+- **Post-pandemic**: Behavioural intent signals matter more, such as:  
+  - **Visit timing (weekday/afternoon)**  
+  - **Delayed first visit (1–2 days)**
 
 #### ✅ Key Segment Insights
 
-| Segment | Characteristics | Conversion | Strategic Implication |
-|--------|------------------|------------|------------------------|
-| **Core Hours** | Weekday Morning/Afternoon (staffed hours) | **42.5%** | High intent → Optimise onboarding & space quality |
-| **Out-of-Hours** | Night, Early Morning, or Weekend (unstaffed hours) | **33.9%** | Underperforming but large group → Improve out-of-hours experience |
+| Segment         | Characteristics                          | Conversion | Strategic Implication                        |
+|-----------------|-------------------------------------------|------------|-----------------------------------------------|
+| **Core Hours**  | Weekday Morning/Afternoon (staffed hours) | 42.5%      | High-intent users → Refine onboarding, boost workspace appeal |
+| **Out-of-Hours**| Night, Early Morning, or Weekend          | 33.9%      | Underperforming but large group → Target with low-cost operational fixes |
 
 ---
 
 ### 📂 Project Scope & Data
 
-- **Data Period**: May 2021 – Dec 2023  
-- **Target Users**: Free trial users (3-day access, first-time only)  
-- **Business Context**: The trial aims to convert new users into paying customers through first-hand workspace experience.  
+- **Period**: May 2021 – Dec 2023  
+- **Target**: Free trial users (3-day access, first-time only)  
+- **Business Context**: Trial aims to convert users via first-hand experience  
 - **Data Sources**:  
-  - Trial sign-up logs  
-  - Visit history (check-in/out sessions)  
+  - Sign-up logs  
+  - Visit history  
   - In/out access events  
   - Payment status  
-  - Site metadata (location size, capacity)  
-- **Final Dataset**:  
-  - Integrated into a **user-level behavioural data mart**  
-  - Includes engineered features like `first_visit_delay`, `main_time_block`, `visit_day_type`, and `avg_density_scaled`
+  - Site metadata  
 
 > 🎯 **Goal**:  
-To identify behavioural signals that distinguish paying users — and use them to define strategic segments and improve conversion performance.
+> Identify behavioural patterns that distinguish paying users and use them to build effective, segment-driven strategies.
 
 ---
 
-### 📊 Key Questions
-
-1. Where in the trial funnel do users most frequently drop off?  
-2. What behavioural traits most strongly differentiate paying users from non-paying users?  
-3. How did user behaviour shift between the pandemic and post-pandemic periods?  
-4. Which user segments offer the best balance of conversion potential and feasibility?  
-5. What low-cost, high-impact actions can improve trial-to-paid conversion?
-
----
-
-### Data Schema & Feature Engineering
+### 🗂️ Data Schema & Feature Engineering
 
 #### Raw Data Schema  
-_Trial events, access logs, and payment outcomes relationship_
+_Tracks the relationship between trial sign-up, behaviour, and payment outcomes._
 
-<img src="https://github.com/user-attachments/assets/c4805fe0-a724-4660-a112-f4926d94f926" width="600"/>
+<img src="https://github.com/user-attachments/assets/c4805fe0-a724-4660-a112-f4926d94f926" width="500"/>
 
+#### Feature Engineering  
+_Created a user-level dataset optimised for behavioural segmentation and prediction._
 
-#### Feature Engineering & Data Mart  
-_Final user-level dataset for segmentation and modelling_
+<img src="https://github.com/user-attachments/assets/661636af-942c-4ebc-ab15-659a23ab077e" width="500"/>
 
-<img src="https://github.com/user-attachments/assets/661636af-942c-4ebc-ab15-659a23ab077e" width="600"/>
-
-
-Key engineered features:
-- `first_visit_delay`: Days from sign-up to first visit  
-- `main_time_block`: Most frequent time block used (e.g., afternoon)  
+**Key Features:**
+- `first_visit_delay`: Time taken to start using the trial  
+- `main_time_block`: Most used time window (e.g. afternoon)  
 - `visit_day_type`: Weekday vs weekend usage  
-- `avg_density_scaled`: Trial congestion exposure, adjusted by site size  
-- `stay_hours`: Total stay time during trial
-
----
-### Buniness Dashboard
-![대시보드 1 (1)](https://github.com/user-attachments/assets/459fcc23-ca9d-4117-901b-019cff641b0e)
-
-
-### 📉 Funnel Breakdown & Business Context
-
-| Year | Sign-ups (avg/mo) | Visitors (avg/mo) | Conversion Rate | Change |
-|------|-------------------|-------------------|-----------------|--------|
-| 2021 | 351               | 218.6             | 42.8%           | Baseline |
-| 2022 | 290.3             | 196.8             | 39.1%           | ▼3.7%p |
-| 2023 | 277.7             | 201.8             | 33.6%           | ▼5.5%p |
-
-> 📌 **Key Observations**  
-- 2022 saw a **decline in sign-ups (–17%)**, reducing top-funnel volume.  
-- 2023 had **stable visits but sharp drop in conversion** → post-visit friction is the issue.
+- `avg_density_scaled`: Congestion exposure normalised by site  
+- `stay_hours`: Total stay time over trial period  
 
 ---
 
-### 🦠 Pandemic vs Post-Pandemic Behaviour Shift
+### Funnel Overview & Business Context
 
-Split point: **May 2022**, when most COVID restrictions were lifted
+#### 📉 Funnel Drop-off Summary (2021–2023)
+
+| Year | Sign-ups (avg/mo) | Visitors (avg/mo) | Conversion Rate | Change   |
+|------|-------------------|-------------------|------------------|----------|
+| 2021 | 351               | 218.6             | 42.8%            | Baseline |
+| 2022 | 290.3             | 196.8             | 39.1%            | ▼3.7%p   |
+| 2023 | 277.7             | 201.8             | 33.6%            | ▼5.5%p   |
+
+> **Interpretation:**  
+> While acquisition and visitation remained relatively stable, the conversion rate continued to drop — especially in 2023.  
+> This confirms that **experience post-visit, not acquisition volume, is the core issue**.  
+> → Strategy must shift from “bring more users” to **“convert the right ones better”**.
+
+---
+
+#### 📊 Dashboard: Funnel Churn & Conversion Trend
+
+<img src="https://github.com/user-attachments/assets/459fcc23-ca9d-4117-901b-019cff641b0e" width="700"/>
+
+##### 🔄 Key Churn Rates
+
+| Metric              | Value   | Interpretation |
+|---------------------|---------|----------------|
+| **Visit Churn**     | 32.1%   | 3 out of 10 users who sign up for trial do not visit the space |
+| **Conversion Churn**| 62.1%   | Over 6 out of 10 trial visitors do not convert into paying users |
+
+> **Insight:**  
+> Most of the churn happens **after the trial visit**.  
+> This highlights post-visit friction, indicating the need for improvements in onboarding, space experience, or follow-up strategies.
+
+---
+
+##### 📈 Monthly Conversion Rate Trend (2021.06–2023.12)
+
+- **2021-06**: 52.96%  
+- **2023-11**: 23.17%  
+- Downward trend of ~30%p, particularly sharp in late 2023
+
+> **Strategic Note:**  
+> This persistent decline suggests **structural issues**, not just short-term noise.  
+> Likely causes include user behaviour shift, operational challenges, and market saturation.  
+> → Calls for a **fundamental review** of the trial experience pipeline.
+
+---
+
+##### 📊 3-Day Trial Sign-ups vs. Conversion Trend
+
+- Sign-ups remain volatile but generally steady  
+- Conversions **continue to decline**, showing widening gap
+
+> **Interpretation:**  
+> While marketing still brings users in, the **product experience fails to seal the deal**.  
+> → Focus must shift to post-sign-up experience: onboarding clarity, motivation reinforcement, and space quality assurance.
+
+---
+
+### 🦠 Behavioural Shift: Pandemic vs Post-Pandemic
+
+#### Split: May 2022 (when COVID restrictions were lifted)
 
 | Period         | Sign-ups (avg/mo) | Conversion Rate | Change |
-|----------------|-------------------|-----------------|--------|
-| Pandemic       | 335.8             | 41.1%           | —      |
-| Post-Pandemic  | 279.8             | 36.1%           | ▼5.0%p |
+|----------------|-------------------|------------------|--------|
+| Pandemic       | 335.8             | 41.1%            | —      |
+| Post-Pandemic  | 279.8             | 36.1%            | ▼5.0%p |
 
 <img src="https://github.com/user-attachments/assets/0336d8e5-ea6f-47ef-add9-d89db3d151da" width="600"/>
 
-> 🔄 **Behavioural Shift**  
-> • **Pandemic**: Longer stays, more frequent visits  
-> • **Post-pandemic**: Time-driven and goal-oriented usage (e.g. weekday/afternoon visits, delayed start)
-
-> 🧭 **Strategic Implication**  
-Post-pandemic user intent is more autonomous and purposeful.  
-→ All modelling and segmentation henceforth focus **solely on post-pandemic data**,  
-where behavioural patterns are clearer and more stable.
-
-
+> **Interpretation:**  
+> Post-pandemic users behave more autonomously and purposefully — they prefer weekday usage and delay their first visit by 1–2 days.  
+> Pandemic-era data reflects irregular usage patterns due to lockdown effects.  
+> → Henceforth, all modelling and strategy focus exclusively on post-pandemic behaviour.
 
 ---
 
-### 🧪 Conversion Analysis: What Drives Payment in the Post-Pandemic Era?
+### Conversion Driver Deep Dive (Post-Pandemic Only)
 
-We trained an XGBoost classifier on post-pandemic data (optimised for recall, not deployment).
-
-#### 🔍 Top Predictive Features
-
-<img src="https://github.com/user-attachments/assets/8bb068ea-e0d2-4f9c-aa29-bddcd238d344" width="600"/>
-
-1. `main_time_block`: Time of visit (structured vs unstructured use)  
-2. `visit_day_type`: Weekday vs weekend usage  
-3. `first_visit_delay`: Planning delay → high intent
+#### Behavioural signals were analysed using:
+- XGBoost (for feature importance)
+- Z-score × Volume contribution
+- Logistic regression (for directionality)
 
 ---
 
-#### 2. Behavioural Contribution Analysis
+#### Top Predictive Features (XGBoost)
+
+<img src="https://github.com/user-attachments/assets/8bb068ea-e0d2-4f9c-aa29-bddcd238d344" width="500"/>
+
+> **Interpretation:**  
+> Timing matters more than volume.  
+> Weekday visits, afternoon hours, and 1–2 day planning delays are strong predictors of payment.  
+> These signals indicate **intent-driven usage** over habitual or impulsive use.
+
+---
+
+#### 7.2 Contribution Analysis by Feature (Z-score × Volume Share)
 
 ##### a. `main_time_block`
 
-<img src="https://github.com/user-attachments/assets/91ed6065-4b61-4730-a02b-8de0068df98f" width="600"/>
+<img src="https://github.com/user-attachments/assets/91ed6065-4b61-4730-a02b-8de0068df98f" width="500"/>
 
 | Time Block     | Conv. Rate | Z-Score | Volume Share | Contribution |
 |----------------|------------|---------|---------------|--------------|
@@ -144,96 +172,100 @@ We trained an XGBoost classifier on post-pandemic data (optimised for recall, no
 | Early Morning  | 34.3%      | –0.67   | 42.6%         | –0.287 ⚠️    |
 | Morning        | 37.3%      | +0.06   | 32.2%         | +0.020        |
 
-**Insight**: Largest drag comes from Early Morning group despite volume.
+> **Insight:**  
+> The Early Morning group is the largest segment but underperforms significantly.  
+> Optimising this time slot experience could unlock large conversion gains.
 
 ---
 
 ##### b. `visit_day_type`
 
-<img src="https://github.com/user-attachments/assets/d58c0741-ab56-4b78-ac03-e82f6134b961" width="600"/>
+<img src="https://github.com/user-attachments/assets/d58c0741-ab56-4b78-ac03-e82f6134b961" width="500"/>
 
 | Type     | Conv. Rate | Z-Score | Volume Share | Contribution |
 |----------|------------|---------|---------------|--------------|
 | Weekday  | 38.4%      | +0.23   | 74.1%         | +0.174 ✅     |
 | Weekend  | 28.5%      | –1.47   | 17.2%         | –0.253 ⚠️    |
 
-**Insight**: Weekend-only users show clear conversion friction.
+> **Insight:**  
+> Weekend users represent a hidden loss centre.  
+> Improving weekend experience or rerouting them toward weekday slots could boost overall performance.
 
 ---
 
-#### c. `first_visit_delay`
+##### c. `first_visit_delay`
 
-<img src="https://github.com/user-attachments/assets/f115cef0-f558-44ff-b2e5-06081c340074" width="600"/>
+<img src="https://github.com/user-attachments/assets/f115cef0-f558-44ff-b2e5-06081c340074" width="500"/>
 
 | Delay    | Conv. Rate | Z-Score | Volume Share | Contribution |
 |----------|------------|---------|---------------|--------------|
 | 0 days   | 31.9%      | –1.41   | 53.9%         | –0.386 ⚠️    |
 | 1 day    | 38.9%      | +0.63   | 36.1%         | +0.363 ✅     |
 
-**Insight**: Immediate visits are impulsive → less likely to convert.
+> **Insight:**  
+> Immediate visits underperform. Encouraging a 1–2 day delay (e.g., via nudges) is a **simple but high-leverage tactic**.
 
 ---
 
-### 3. Combined Segment Analysis
+#### Combined Segment Analysis
 
-<img src="https://github.com/user-attachments/assets/5f7670b6-4b8c-45b3-9f6b-fdca497d5de0" width="600"/>
+<img src="https://github.com/user-attachments/assets/5f7670b6-4b8c-45b3-9f6b-fdca497d5de0" width="500"/>
 
-Combination of:
-- `main_time_block`
-- `visit_day_type`
-- `first_visit_delay`
-
-Reveals strategic segments for targeting.
+> **Interpretation:**  
+> Combining `main_time_block`, `visit_day_type`, and `first_visit_delay` reveals **high-ROI micro-segments**.  
+> These combinations outperform any single variable and form the foundation for strategic targeting.
 
 ---
 
-### 🎯 Target Segment Strategy
+### Strategic Target Segments
 
-#### ✅ High-ROI Segment
+#### ✅ High-ROI Group
 
-**Definition**:  
-- Weekday Morning/Afternoon  
-- 1–2 Day Delay  
+| Segment Definition                      | Users | Conversion |
+|-----------------------------------------|--------|------------|
+| Weekday Morning/Afternoon + 1–2 day delay | 1,325  | 42.57%     |
 
-**Conversion Rate**: 42.57%  
-**Users**: 1,325 → **564** converted
-
-**Actions**:
-- Improve onboarding, workspace quality  
-- Send follow-up nudges
+> **Action:**  
+> These users plan and visit during ideal hours.  
+> Optimise onboarding, reinforce workspace value, and automate delayed-visit nudges.
 
 ---
 
-### ⚠️ At-Risk Segment
+#### ⚠️ At-Risk Group
 
-**Definition**:  
-- Early Morning, Midnight, Weekend use  
+| Segment Definition                   | Users | Conversion |
+|--------------------------------------|--------|------------|
+| Early Morning / Midnight / Weekend   | 2,290  | 33.93%     |
 
-**Conversion Rate**: 33.93%  
-**Users**: 2,290 → **777** converted
-
-**Actions**:
-- Fix out-of-hours onboarding issues  
-- Provide digital orientation  
-- Explore minimal staffing on peak nights/weekends
+> **Action:**  
+> Improve experience during low-staffed hours via:  
+> - Digital onboarding  
+> - Scheduled follow-ups  
+> - Minimal night/weekend support
 
 ---
 
-### 📈 Strategy Impact Simulation
+#### 📈 Impact Simulation
 
 | Group          | Users | Baseline CR | +1%p Gain | Conversion Uplift |
-|----------------|-------|-------------|-----------|--------------------|
-| Core Hours     | 1,327 | 42.5%       | +13.3     | +0.35%p            |
-| Out-of-Hours   | 1,560 | 34.4%       | +15.6     | +0.41%p            |
-| **Total**      | —     | —           | +28.9     | **+0.76%p**        |
+|----------------|--------|--------------|-----------|--------------------|
+| Core Hours     | 1,327  | 42.5%        | +13.3     | +0.35%p            |
+| Out-of-Hours   | 1,560  | 34.4%        | +15.6     | +0.41%p            |
+| **Total**      | —      | —            | **+28.9** | **+0.76%p**        |
 
-> Even modest improvements deliver measurable uplift without new user acquisition.
+> **Interpretation:**  
+> Small improvements in just two segments could lift total conversion rate by +0.76%p — without acquiring a single new user.  
+> → Low-cost, **operationally focused growth** is achievable.
 
 ---
 
-### ✅ Final Takeaways
+### Final Takeaways
 
-- 📉 Conversion drop is **post-visit**, not pre-visit.  
-- 🟦 Core Hour users show **high intent and ROI** — invest here.  
-- 🟥 Out-of-Hours users show **high friction** — fix operations.  
-- 🧠 Focus on **experience, not expansion** → efficient growth.
+- 📉 The **main conversion bottleneck lies post-visit**, not in marketing or acquisition  
+- 🟦 Weekday + delayed visit users convert well — **focus efforts here**  
+- 🟥 Out-of-hours usage is **high volume but low return** — **fix operational friction**  
+- 💡 Growth doesn’t always require more users — it comes from **serving the right ones better**
+
+---
+
+
