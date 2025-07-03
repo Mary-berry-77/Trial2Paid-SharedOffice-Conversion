@@ -2,6 +2,7 @@
 
 This project analyses behavioural log data from a shared office provider to uncover key drivers of trial-to-paid conversion and proposes actionable strategies based on user segmentation.
 
+Full Report 
 ---
 
 ## 🧭 TL;DR (Quick Summary)
