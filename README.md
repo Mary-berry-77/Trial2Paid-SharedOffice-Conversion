@@ -237,15 +237,23 @@ conversion contribution by time block, factoring in:
 
 
 ### 6.3 Combined Segment Analysis
+Three key behavioural features — visit day type, main time block, and first visit delay — were combined to calculate each segment’s contribution score.
+The chart below displays the top 5 and bottom 5 segments out of 40 possible combinations.
 
 <img src="https://github.com/user-attachments/assets/5f7670b6-4b8c-45b3-9f6b-fdca497d5de0" width="500"/>
 
->  Combining key features reveals **high-potential microsegments**  
-> Ideal for targeted UX, operational, and marketing interventions.
+- Top-performing segments share common traits:
+Visits during core business hours when staff are likely present
+- Lowest-performing segments are concentrated in:
+Off-hour visits, typically early morning or weekends, with no staff available
+
+> **Strategic Implication**
+> The presence or absence of staff during trial visits may significantly affect onboarding quality and conversion outcomes.
+> → Reinforcing support during unmanned hours could help recover churn-heavy segments.
 
 ---
 
-## 7. Strategic Target Segments
+## Section 7. Strategic Target Segments
 
 ### 7.1 High-ROI Group
 
