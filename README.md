@@ -320,11 +320,53 @@ Likely challenges:
 
 ## Section 9. Strategic Implications for Teams
 
-| Stakeholder     | Key Takeaway                                              |
-|-----------------|-----------------------------------------------------------|
-| **Product**     | Streamline onboarding; highlight value for key segments   |
-| **Operations**  | Improve off-hour support (automation or minimal staffing) |
-| **Marketing**   | Target weekday, delayed-intent users rather than all      |
-| **Leadership**  | Focus investment on user experience, not just acquisition |
+Insights from behavioural segmentation suggest **targeted improvements across teams** can significantly lift conversion —  
+without acquiring new users.
+
+
+
+###  Product
+
+> **"Streamline onboarding; highlight value for high-intent users"**
+
+- Simplify the onboarding journey, especially for weekday visitors with 1–2 day delays.
+- Emphasise key workspace benefits during first contact (quietness, focus, value).
+- Ensure both staff-assisted and self-guided onboarding are intuitive and motivating.
+
+
+### ⚙ Operations
+
+> **"Improve off-hour support (automation or minimal staffing)"**
+
+- At-risk users often visit during **early morning, late night, or weekends**, when staff are unavailable.
+- Support suggestions:
+  - QR-based self-onboarding guides  
+  - Clear in-space signage  
+  - Light-touch support presence (e.g., hotline, digital help screens)
+- Maintain space readiness (cleanliness, lighting, visibility) especially during unmanned hours.
+
+
+
+###  Marketing
+
+> **"Focus campaigns on weekday, delayed-intent users"**
+
+- Avoid one-size-fits-all targeting.
+- Instead, prioritise users who:
+  - Sign up but **visit 1–2 days later**
+  - Prefer **weekday mornings/afternoons**
+- These users show high conversion intent —  
+  → Campaigns that ensure a **positive first experience** (timed messages, pre-visit tips) will be especially effective.
+
+
+
+###  Leadership
+
+> **"Prioritise user experience over new acquisition"**
+
+- Trial sign-ups are declining, but conversion is still feasible with intentional users.
+- Investing in onboarding, experience design, and segmented support yields better ROI than spending solely on acquisition.
+- Strategic focus should shift to **quality of engagement**, not just quantity of leads.
+
 
 ---
