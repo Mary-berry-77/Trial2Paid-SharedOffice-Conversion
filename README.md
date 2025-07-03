@@ -265,7 +265,7 @@ Off-hour visits, typically early morning or weekends, with no staff available
 > Optimise onboarding and reinforce value for these high-intent users.  
 > Use automated nudges to encourage delayed visits.
 
----
+
 
 ### 7.2 At-Risk Group
 
@@ -279,7 +279,7 @@ Off-hour visits, typically early morning or weekends, with no staff available
 > - Scheduled follow-ups  
 > - Minimal but visible support presence
 
----
+
 
 ### 7.3 Impact Simulation
 
@@ -295,7 +295,7 @@ Off-hour visits, typically early morning or weekends, with no staff available
 
 ---
 
-## 8. Final Takeaways
+## Section 8. Final Takeaways
 
 -  The **main bottleneck lies post-visit**, not in acquisition  
 -  Weekday + delayed visit users convert well → **focus effort here**  
@@ -304,7 +304,7 @@ Off-hour visits, typically early morning or weekends, with no staff available
 
 ---
 
-## 9. Strategic Implications for Teams
+## Section 9. Strategic Implications for Teams
 
 | Stakeholder     | Key Takeaway                                              |
 |-----------------|-----------------------------------------------------------|
