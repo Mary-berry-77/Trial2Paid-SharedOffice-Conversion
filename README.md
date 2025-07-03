@@ -301,8 +301,8 @@ Based on contribution analysis, two operationally distinct user groups were iden
 
 | Group | Users | Baseline CR | +1%p Gain | Total Impact |
 |-------|-------|-------------|-----------|---------------|
-| High-ROI | 1,327 | 42.5% | +13.3 | +0.35%p |
-| At-Risk | 1,560 | 34.4% | +15.6 | +0.41%p |
+| Core Hours | 1,327 | 42.5% | +13.3 | +0.35%p |
+| Unmanned Hours | 1,560 | 34.4% | +15.6 | +0.41%p |
 | **Total** | — | — | +28.9 | **+0.76%p** |
 
 > Even a modest **+1%p conversion uplift** in each segment would result in:  
