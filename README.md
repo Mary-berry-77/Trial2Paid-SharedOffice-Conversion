@@ -198,7 +198,7 @@ conversion contribution by time block, factoring in:
 > Afternoon and Morning users represent high-value segments.
 > Early Morning users are a major volume group with poor outcomes — investigating and improving their experience should be a priority.
 
----
+
 
 #### b. `visit_day_type`
 
@@ -209,9 +209,15 @@ conversion contribution by time block, factoring in:
 | Weekday  | 38.4%      | +0.23   | 74.1%         | +0.174 (↑)       |
 | Weekend  | 28.5%      | –1.47   | 17.2%         | –0.253 (↓)       |
 
->  **Insight:** Weekend usage has lower intent — consider nudging to weekday use.
+- Weekday users dominate in both volume and conversion rate, resulting in the highest overall contribution.
+- Weekend users show the lowest conversion rate, and despite their smaller volume, they exert a strong negative impact on total conversion (–0.253).
+- Users who visited on both weekdays and weekends had a high conversion rate but their population was too small to significantly affect overall performance.
 
----
+>  **Strategic Implication**
+> Weekday trial users are the core conversion group.
+> Weekend visits are dragging down performance and may indicate service quality issues or less guided user experience.
+> → Weekend trial experience requires closer review and potential intervention.
+
 
 #### c. `first_visit_delay`
 
@@ -222,9 +228,13 @@ conversion contribution by time block, factoring in:
 | 0 days   | 31.9%      | –1.41   | 53.9%         | –0.386 (↓ risk)  |
 | 1 day    | 38.9%      | +0.63   | 36.1%         | +0.363 (↑ boost) |
 
->  **Tip:** Encourage 1–2 day planning delay via nudges for better conversion.
+- Users who visited 1 day after sign-up make up the largest segment and also show the highest conversion rate, resulting in strong positive contribution
+- Same-day visitors (visit on the day of sign-up) show a much lower conversion rate, despite moderate volume.
+- Other delay intervals had less impact due to smaller group sizes.
+> **Strategic Implication**
+> Next-day visitors are likely to have clear conversion intent and represent a high-priority target group.
+> The significant performance gap suggests a need to examine onboarding differences between same-day visitors and users who plan their visits in advance.
 
----
 
 ### 6.3 Combined Segment Analysis
 
