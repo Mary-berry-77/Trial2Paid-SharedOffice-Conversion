@@ -7,7 +7,7 @@ Full Version can be found here
 
 ---
 
-## 🧭 TL;DR (Quick Summary)
+##  TL;DR (Quick Summary)
 
 ### 1. Conversion Issue  
 From 2021 to 2023, the trial-to-paid conversion rate fell from **53% to 23%**, despite stable trial sign-ups.  
@@ -51,7 +51,7 @@ Conversion signals evolved over time:
   - Payment status  
   - Site metadata  
 
-> 🎯 **Goal:**  
+>  **Goal:**  
 > Discover behavioural patterns that differentiate converting users and use them to guide segment-level strategies.
 
 ---
@@ -87,7 +87,7 @@ Created a user-level dataset optimised for behavioural segmentation and predicti
 | 2022 | 290.3             | 196.8             | 39.1%                         | ▼3.7%p   |
 | 2023 | 277.7             | 201.8             | 33.6%                         | ▼5.5%p   |
 
-> 🔍 **Interpretation:**  
+>  **Interpretation:**  
 > Despite relatively stable acquisition and visitation, conversion dropped significantly — especially in 2023.  
 > The issue lies in **post-visit experience**, not marketing.  
 > → Focus must shift from “more users” to **“better conversion of the right users”**.
@@ -105,7 +105,7 @@ Created a user-level dataset optimised for behavioural segmentation and predicti
 | **Visit Churn**     | 32.1%   | 1 in 3 trial sign-ups never visit the space        |
 | **Conversion Churn**| 44.1%   | 4 in 10 trial visitors do not convert to payment   |
 
-> 💡 **Insight:**  
+>  **Insight:**  
 > The majority of churn occurs **after the visit**.  
 > Strategy must address onboarding clarity, space experience, and follow-up engagement.
 
@@ -117,7 +117,7 @@ Created a user-level dataset optimised for behavioural segmentation and predicti
 - **2023-11:** 23.17%  
 → A consistent 30 percentage point decline, especially steep in late 2023.
 
-> 📌 **Note:**  
+>  **Note:**  
 > Indicates **structural behavioural changes**, not temporary fluctuations.  
 > → Time to re-evaluate the **entire conversion experience pipeline**.
 
@@ -128,7 +128,7 @@ Created a user-level dataset optimised for behavioural segmentation and predicti
 - Sign-ups remain steady  
 - Conversions drop → widening gap
 
-> 🔎 **Interpretation:**  
+>  **Interpretation:**  
 > The issue is not user interest — it’s the **failure to convert interested users into paying ones**.
 
 ---
@@ -145,7 +145,7 @@ Chosen based on Korea’s official lifting of COVID restrictions.
 
 <img src="https://github.com/user-attachments/assets/0336d8e5-ea6f-47ef-add9-d89db3d151da" width="600"/>
 
-> 📌 **Insight:**  
+>  **Insight:**  
 > Post-pandemic users behave with more intent — visiting on weekdays and delaying their first visit.  
 > Pandemic-era data is biased by lockdown disruptions.  
 > → All modelling and strategy henceforth focuses **only on post-pandemic data**.
@@ -163,7 +163,7 @@ Chosen based on Korea’s official lifting of COVID restrictions.
 
 <img src="https://github.com/user-attachments/assets/8bb068ea-e0d2-4f9c-aa29-bddcd238d344" width="500"/>
 
-> 🧠 **Interpretation:**  
+>  **Interpretation:**  
 > **When** users visit matters more than **how much** they use.  
 > Intent-based behaviours (timing, planning) outperform habitual ones.
 
@@ -181,7 +181,7 @@ Chosen based on Korea’s official lifting of COVID restrictions.
 | Early Morning  | 34.3%      | –0.67   | 42.6%         | –0.287 (↓ low)   |
 | Morning        | 37.3%      | +0.06   | 32.2%         | +0.020           |
 
-> ⚠️ **Issue:** Early Morning has the largest volume but drags down conversion.
+>  **Issue:** Early Morning has the largest volume but drags down conversion.
 
 ---
 
@@ -194,7 +194,7 @@ Chosen based on Korea’s official lifting of COVID restrictions.
 | Weekday  | 38.4%      | +0.23   | 74.1%         | +0.174 (↑)       |
 | Weekend  | 28.5%      | –1.47   | 17.2%         | –0.253 (↓)       |
 
-> 🔎 **Insight:** Weekend usage has lower intent — consider nudging to weekday use.
+>  **Insight:** Weekend usage has lower intent — consider nudging to weekday use.
 
 ---
 
@@ -207,7 +207,7 @@ Chosen based on Korea’s official lifting of COVID restrictions.
 | 0 days   | 31.9%      | –1.41   | 53.9%         | –0.386 (↓ risk)  |
 | 1 day    | 38.9%      | +0.63   | 36.1%         | +0.363 (↑ boost) |
 
-> 💡 **Tip:** Encourage 1–2 day planning delay via nudges for better conversion.
+>  **Tip:** Encourage 1–2 day planning delay via nudges for better conversion.
 
 ---
 
@@ -215,7 +215,7 @@ Chosen based on Korea’s official lifting of COVID restrictions.
 
 <img src="https://github.com/user-attachments/assets/5f7670b6-4b8c-45b3-9f6b-fdca497d5de0" width="500"/>
 
-> 🔍 Combining key features reveals **high-potential microsegments**  
+>  Combining key features reveals **high-potential microsegments**  
 > Ideal for targeted UX, operational, and marketing interventions.
 
 ---
@@ -228,7 +228,7 @@ Chosen based on Korea’s official lifting of COVID restrictions.
 |-----------------------------------------|--------|------------|
 | Weekday Morning/Afternoon + 1–2 day delay | 1,325  | 42.57%     |
 
-> ✅ **Action:**  
+>  **Action:**  
 > Optimise onboarding and reinforce value for these high-intent users.  
 > Use automated nudges to encourage delayed visits.
 
@@ -240,7 +240,7 @@ Chosen based on Korea’s official lifting of COVID restrictions.
 |--------------------------------------|--------|------------|
 | Early Morning / Midnight / Weekend   | 2,290  | 33.93%     |
 
-> ⚠️ **Action:**  
+>  **Action:**  
 > Enhance experience during low-staffed hours through:  
 > - Digital onboarding & guidance  
 > - Scheduled follow-ups  
@@ -256,7 +256,7 @@ Chosen based on Korea’s official lifting of COVID restrictions.
 | Out-of-Hours   | 1,560  | 34.4%        | +15.6     | +0.41%p            |
 | **Total**      | —      | —            | **+28.9** | **+0.76%p**        |
 
-> 🧮 **Insight:**  
+>  **Insight:**  
 > Small, focused improvements to just two groups could lift overall conversion by +0.76%p  
 > → **No new users required. Just better engagement.**
 
@@ -264,10 +264,10 @@ Chosen based on Korea’s official lifting of COVID restrictions.
 
 ## 8. Final Takeaways
 
-- 📉 The **main bottleneck lies post-visit**, not in acquisition  
-- 🟦 Weekday + delayed visit users convert well → **focus effort here**  
-- 🟥 Out-of-hours users are high-volume but low-yield → **improve support experience**  
-- 💡 Sustainable growth comes from **serving the right users better**, not spending more
+-  The **main bottleneck lies post-visit**, not in acquisition  
+-  Weekday + delayed visit users convert well → **focus effort here**  
+-  Out-of-hours users are high-volume but low-yield → **improve support experience**  
+-  Sustainable growth comes from **serving the right users better**, not spending more
 
 ---
 
