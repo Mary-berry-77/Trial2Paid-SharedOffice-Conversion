@@ -2,7 +2,8 @@
 
 This project analyses behavioural log data from a shared office provider to uncover key drivers of trial-to-paid conversion and proposes actionable strategies based on user segmentation.
 
-Full Version can be found here
+**Full report available here**:  
+[View Full Version on GitHub](https://github.com/Mary-berry-77/Mary-berry-77-Trial2Paid-SharedOffice-Conversion-Full-Report/blob/main/README.md)
 
 
 ---
