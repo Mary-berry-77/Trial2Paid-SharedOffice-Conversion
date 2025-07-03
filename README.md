@@ -160,7 +160,7 @@ _Created a user-level dataset optimised for behavioural segmentation and predict
 
 ---
 
-#### 7.2 Contribution Analysis by Feature (Z-score × Volume Share)
+#### Contribution Analysis by Feature (Z-score × Volume Share)
 
 ##### a. `main_time_block`
 
@@ -229,7 +229,6 @@ _Created a user-level dataset optimised for behavioural segmentation and predict
 > These users plan and visit during ideal hours.  
 > Optimise onboarding, reinforce workspace value, and automate delayed-visit nudges.
 
----
 
 #### ⚠️ At-Risk Group
 
