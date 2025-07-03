@@ -76,6 +76,9 @@ Key engineered features:
 - `stay_hours`: Total stay time during trial
 
 ---
+### Buniness Dashboard
+![대시보드 1 (1)](https://github.com/user-attachments/assets/459fcc23-ca9d-4117-901b-019cff641b0e)
+
 
 ### 📉 Funnel Breakdown & Business Context
 
@@ -119,9 +122,9 @@ where behavioural patterns are clearer and more stable.
 
 We trained an XGBoost classifier on post-pandemic data (optimised for recall, not deployment).
 
-### 🔍 Top Predictive Features
+#### 🔍 Top Predictive Features
 
-![feature importance (post-pandemic)](https://github.com/user-attachments/assets/8bb068ea-e0d2-4f9c-aa29-bddcd238d344)
+<img src="https://github.com/user-attachments/assets/8bb068ea-e0d2-4f9c-aa29-bddcd238d344" width="600"/>
 
 1. `main_time_block`: Time of visit (structured vs unstructured use)  
 2. `visit_day_type`: Weekday vs weekend usage  
@@ -129,11 +132,11 @@ We trained an XGBoost classifier on post-pandemic data (optimised for recall, no
 
 ---
 
-### 2. Behavioural Contribution Analysis
+#### 2. Behavioural Contribution Analysis
 
-#### a. `main_time_block`
+##### a. `main_time_block`
 
-![main time block - user count and conversion rate](https://github.com/user-attachments/assets/91ed6065-4b61-4730-a02b-8de0068df98f)
+<img src="https://github.com/user-attachments/assets/91ed6065-4b61-4730-a02b-8de0068df98f" width="600"/>
 
 | Time Block     | Conv. Rate | Z-Score | Volume Share | Contribution |
 |----------------|------------|---------|---------------|--------------|
@@ -145,9 +148,9 @@ We trained an XGBoost classifier on post-pandemic data (optimised for recall, no
 
 ---
 
-#### b. `visit_day_type`
+##### b. `visit_day_type`
 
-![visit day type - user count and conversion rate](https://github.com/user-attachments/assets/d58c0741-ab56-4b78-ac03-e82f6134b961)
+<img src="https://github.com/user-attachments/assets/d58c0741-ab56-4b78-ac03-e82f6134b961" width="600"/>
 
 | Type     | Conv. Rate | Z-Score | Volume Share | Contribution |
 |----------|------------|---------|---------------|--------------|
@@ -158,9 +161,9 @@ We trained an XGBoost classifier on post-pandemic data (optimised for recall, no
 
 ---
 
-### c. `first_visit_delay`
+#### c. `first_visit_delay`
 
-![first visit delay - user count and conversion rate](https://github.com/user-attachments/assets/f115cef0-f558-44ff-b2e5-06081c340074)
+<img src="https://github.com/user-attachments/assets/f115cef0-f558-44ff-b2e5-06081c340074" width="600"/>
 
 | Delay    | Conv. Rate | Z-Score | Volume Share | Contribution |
 |----------|------------|---------|---------------|--------------|
@@ -171,9 +174,9 @@ We trained an XGBoost classifier on post-pandemic data (optimised for recall, no
 
 ---
 
-## 3. Combined Segment Analysis
+### 3. Combined Segment Analysis
 
-![contribution by behavioural combination](https://github.com/user-attachments/assets/5f7670b6-4b8c-45b3-9f6b-fdca497d5de0)
+<img src="https://github.com/user-attachments/assets/5f7670b6-4b8c-45b3-9f6b-fdca497d5de0" width="600"/>
 
 Combination of:
 - `main_time_block`
@@ -184,9 +187,9 @@ Reveals strategic segments for targeting.
 
 ---
 
-## 🎯 Target Segment Strategy
+### 🎯 Target Segment Strategy
 
-### ✅ High-ROI Segment
+#### ✅ High-ROI Segment
 
 **Definition**:  
 - Weekday Morning/Afternoon  
@@ -216,7 +219,7 @@ Reveals strategic segments for targeting.
 
 ---
 
-## 📈 Strategy Impact Simulation
+### 📈 Strategy Impact Simulation
 
 | Group          | Users | Baseline CR | +1%p Gain | Conversion Uplift |
 |----------------|-------|-------------|-----------|--------------------|
@@ -228,7 +231,7 @@ Reveals strategic segments for targeting.
 
 ---
 
-## ✅ Final Takeaways
+### ✅ Final Takeaways
 
 - 📉 Conversion drop is **post-visit**, not pre-visit.  
 - 🟦 Core Hour users show **high intent and ROI** — invest here.  
