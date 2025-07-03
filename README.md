@@ -10,27 +10,27 @@ This project analyses behavioural log data from a shared office provider to unco
 
 ##  TL;DR (Quick Summary)
 
-### 1. Conversion Issue  
-From 2021 to 2023, the trial-to-paid conversion rate fell from **53% to 23%**, despite stable trial sign-ups.  
-The key bottleneck occurs **after users visit the space**, indicating friction in the **product experience**, not acquisition.
+#### 1. Conversion Issue  
+- From 2021 to 2023, the trial-to-paid conversion rate fell from **53% to 23%**, despite stable trial sign-ups.  
+- The key bottleneck occurs **after users visit the space**, indicating friction in the **product experience**, not acquisition.
 
-### 2. Behavioural Shift  
-Conversion signals evolved over time:  
-- **Pandemic era**: Usage volume (longer stays, more visits) was key  
-- **Post-pandemic**: Intent-driven behaviours became more predictive, such as:  
-  - **Visit timing (weekday/afternoon)**  
-  - **Delayed first visit (1–2 days)**
+#### 2. Behavioural Shift  
+- Conversion signals evolved over time:  
+  - **Pandemic era**: Usage volume (longer stays, more visits) was key  
+  - **Post-pandemic**: Intent-driven behaviours became more predictive, such as:  
+    - **Visit timing (weekday/afternoon)**  
+    - **Delayed first visit (1–2 days)**
 
-### 3. Key Segment Insights
+#### 3. Key Segment Insights
 
 | Segment         | Characteristics                          | Conversion | Strategic Implication                              |
 |-----------------|-------------------------------------------|------------|-----------------------------------------------------|
-| **Core Hours**  | Weekday Morning/Afternoon (staffed hours) | 42.5%      | High-intent users → Refine onboarding & space value |
-| **Out-of-Hours**| Night, Early Morning, or Weekend          | 33.9%      | Large underperforming group → Fix ops frictions     |
+| **Core-Hour-User**  | Weekday Morning/Afternoon (staffed hours) | 42.5%      | High-intent users → Refine onboarding & space value |
+| **Out-of-Hour-User**| Night, Early Morning, or Weekend          | 33.9%      | Large underperforming group → Fix ops frictions     |
 
 ---
 
-## 1. Key Research Questions
+## Section 1. Key Research Questions
 
 1. **At which stages** do most trial users drop off, and what behaviours precede those drop-offs?  
 2. **Which behavioural patterns** are most strongly associated with successful trial-to-paid conversion?  
@@ -40,7 +40,7 @@ Conversion signals evolved over time:
 
 ---
 
-## 2. Project Scope & Data
+## Section 2. Project Scope & Data
 
 - **Period:** May 2021 – Dec 2023  
 - **Target Users:** Free trial users (3-day access)  
@@ -57,7 +57,7 @@ Conversion signals evolved over time:
 
 ---
 
-## 3. Data Schema & Feature Engineering
+## Section 3. Data Schema & Feature Engineering
 
 ### 3.1 Raw Data Schema  
 Tracks the link between trial registration, behaviour, and payment outcome.  
@@ -78,7 +78,7 @@ Created a user-level dataset optimised for behavioural segmentation and predicti
 
 ---
 
-## 4. Funnel Overview & Business Context
+## Section 4. Funnel Overview & Business Context
 
 ### 4.1 Funnel Drop-off Summary (2021–2023)
 
@@ -93,11 +93,16 @@ Created a user-level dataset optimised for behavioural segmentation and predicti
 > The issue lies in **post-visit experience**, not marketing.  
 > → Focus must shift from “more users” to **“better conversion of the right users”**.
 
----
+
 
 ### 4.2 Funnel Churn & Conversion Trend Dashboard
+The dashboard below visualises the trial-to-paid conversion funnel and highlights key churn points. 
+It also shows a declining conversion trend over time, suggesting possible service quality deterioration during trial visits in 2023.
 
 <img src="https://github.com/user-attachments/assets/4169a524-d19a-4328-9d66-79f18b9677d0" width="700"/>
+
+>  **Insight:**
+> The sharp decline after trial visits suggests a need to investigate **on-site experience quality** and its impact on conversion.
 
 ### 4.3 Key Churn Rates
 
@@ -110,13 +115,13 @@ Created a user-level dataset optimised for behavioural segmentation and predicti
 > The majority of churn occurs **after the visit**.  
 > Strategy must address onboarding clarity, space experience, and follow-up engagement.
 
----
+
 
 ### 4.4 Monthly Conversion Rate Trend (2021.06–2023.12)
 
 - **2021-06:** 52.96%  
 - **2023-11:** 23.17%  
-→ A consistent 30 percentage point decline, especially steep in late 2023.
+→ Overall conversion rate dropped from 53% to 23%, with a notable sharp decline in late 2023.
 
 >  **Note:**  
 > Indicates **structural behavioural changes**, not temporary fluctuations.  
@@ -124,17 +129,7 @@ Created a user-level dataset optimised for behavioural segmentation and predicti
 
 ---
 
-### 4.5 Trial Sign-ups vs. Conversion Trend
-
-- Sign-ups remain steady  
-- Conversions drop → widening gap
-
->  **Interpretation:**  
-> The issue is not user interest — it’s the **failure to convert interested users into paying ones**.
-
----
-
-## 5. Behavioural Shift: Pandemic vs Post-Pandemic
+## Section 5. Behavioural Shift: Pandemic vs Post-Pandemic
 
 ### 5.1 Period Split: May 2022  
 Chosen based on Korea’s official lifting of COVID restrictions.
@@ -144,16 +139,25 @@ Chosen based on Korea’s official lifting of COVID restrictions.
 | Pandemic       | 335.8             | 41.1%            | —      |
 | Post-Pandemic  | 279.8             | 36.1%            | ▼5.0%p |
 
+- Although sign-ups dropped by 17%, the conversion rate only declined by 5%p.
+- This suggests that post-pandemic trial users were more selective and intentional, likely visiting with a stronger interest in conversion.
+
 <img src="https://github.com/user-attachments/assets/0336d8e5-ea6f-47ef-add9-d89db3d151da" width="600"/>
 
+- The chart above compares feature importance scores from predictive models trained separately on each period.
+- The most striking difference lies in when users visited — specifically:
+    - Day of the week
+    - Time block (e.g. afternoon, evening)
+
 >  **Insight:**  
-> Post-pandemic users behave with more intent — visiting on weekdays and delaying their first visit.  
-> Pandemic-era data is biased by lockdown disruptions.  
-> → All modelling and strategy henceforth focuses **only on post-pandemic data**.
+> This shift indicates a change in user intent and behaviour.
+> Post-pandemic users are more likely to plan their visits strategically, choosing weekday and off-peak hours to explore the space with clear conversion goals.
+
+As a result, all modelling and segmentation strategies moving forward are based solely on post-pandemic data.
 
 ---
 
-## 6. Conversion Driver Deep Dive (Post-Pandemic Only)
+## Section 6. Conversion Driver Deep Dive (Post-Pandemic Only)
 
 ### 6.1 Methods Used
 - XGBoost for feature importance  
@@ -164,16 +168,20 @@ Chosen based on Korea’s official lifting of COVID restrictions.
 
 <img src="https://github.com/user-attachments/assets/8bb068ea-e0d2-4f9c-aa29-bddcd238d344" width="500"/>
 
->  **Interpretation:**  
-> **When** users visit matters more than **how much** they use.  
-> Intent-based behaviours (timing, planning) outperform habitual ones.
+As highlighted in Section 5, when users visit plays a significantly more important role in the post-pandemic period.
+To design effective strategies for improving conversion, the analysis focuses on time-related behavioural signals, such as:
+  - **Day of visit** (weekday vs weekend)
+  - **Time block** (morning / afternoon / evening)
+  - **Delay until first visit**
 
----
+Understanding these dimensions helps uncover high-intent user patterns and optimise the trial experience accordingly.
+
 
 ### 6.2 Feature Contribution (Z-score × Volume Share)
 
 #### a. `main_time_block`
-
+conversion contribution by time block, factoring in:
+① user volume, ② conversion rate, and ③ contribution score (Z-score × volume share)
 <img src="https://github.com/user-attachments/assets/91ed6065-4b61-4730-a02b-8de0068df98f" width="500"/>
 
 | Time Block     | Conv. Rate | Z-Score | Volume Share | Contribution     |
@@ -182,7 +190,13 @@ Chosen based on Korea’s official lifting of COVID restrictions.
 | Early Morning  | 34.3%      | –0.67   | 42.6%         | –0.287 (↓ low)   |
 | Morning        | 37.3%      | +0.06   | 32.2%         | +0.020           |
 
->  **Issue:** Early Morning has the largest volume but drags down conversion.
+- Afternoon: Highest conversion rate and strong contribution, but relatively small user base. A high-performing but underexposed segment.
+- Morning: Moderate contribution but large user volume. A key segment with strong overall impact.
+- Early Morning: Largest user base, but lowest conversion rate and lowest contribution. A critical underperforming segment requiring urgent attention.
+
+> **Strategic Implication**
+> Afternoon and Morning users represent high-value segments.
+> Early Morning users are a major volume group with poor outcomes — investigating and improving their experience should be a priority.
 
 ---
 
