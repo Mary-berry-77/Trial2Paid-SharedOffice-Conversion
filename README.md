@@ -254,17 +254,21 @@ Off-hour visits, typically early morning or weekends, with no staff available
 ---
 
 ## Section 7. Strategic Target Segments
-
+Based on the combined contribution analysis in Section 6, identified two key behavioural segments are:
+-  High-ROI Group with strong intent and high performance
+-  At-Risk Group with large user volume but low conversion
+  
 ### 7.1 High-ROI Group
 
 | Segment Definition                      | Users | Conversion |
 |-----------------------------------------|--------|------------|
 | Weekday Morning/Afternoon + 1–2 day delay | 1,325  | 42.57%     |
 
->  **Action:**  
-> Optimise onboarding and reinforce value for these high-intent users.  
-> Use automated nudges to encourage delayed visits.
-
+This group shows:
+- Clear intent to convert, as indicated by delayed visits during staffed weekday hours
+- High conversion rate and substantial user volume
+> **Action**
+> Focus efforts on optimising onboarding and workspace experience during core hours.
 
 
 ### 7.2 At-Risk Group
@@ -273,11 +277,21 @@ Off-hour visits, typically early morning or weekends, with no staff available
 |--------------------------------------|--------|------------|
 | Early Morning / Midnight / Weekend   | 2,290  | 33.93%     |
 
->  **Action:**  
-> Enhance experience during low-staffed hours through:  
-> - Digital onboarding & guidance  
-> - Scheduled follow-ups  
-> - Minimal but visible support presence
+This group represents:
+- The largest inflow of trial users
+- The lowest conversion outcomes, despite high volume
+
+Likely challenges:
+- Visits occur during unmanned hours, causing friction in onboarding
+- Possible issues with unclear guidance, cleanliness, or low first impression
+
+> **Action**
+> Urgent improvements needed in out-of-hours onboarding.
+> Suggested measures:
+>   - QR-based self-guided onboarding
+>   - Clear signage and workspace usage instructions
+>   - Minimal but visible support touchpoints (e.g. contact info)
+
 
 
 
