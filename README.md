@@ -2,7 +2,10 @@
 
 This project analyzes behavioral log data from a shared office provider to uncover key drivers of trial-to-paid user conversion and proposes actionable strategies based on user segmentation.
 
+
+
 ---
+
 
 ## 🧭 TL;DR (Quick Summary)
 
@@ -17,12 +20,12 @@ Feature analysis reveals a shift in conversion drivers:
 
 ### ✅ Key Segment Insights
 | Segment | Characteristics | Conversion | Strategic Implication |
-|--------|-----------------|------------|------------------------|
-| **High-ROI** | Weekday Morning/Afternoon(staffed-hour) | **42.5%** |  High intent → Optimise onboarding & space quality |
-| **At-Risk** | Night, Early Morning, or Weekend (unstaffed-hour) | **33.9%** | Underperforming but large group → Improve off-hour experience |
+|--------|------------------|------------|------------------------|
+| **Core Hours** | Weekday Morning/Afternoon (staffed hours) | **42.5%** | High intent → Optimise onboarding & space quality |
+| **Unmanned Hours** | Night, Early Morning, or Weekend (unstaffed hours) | **33.9%** | Underperforming but large group → Improve off-hour experience |
 
-### 📈 Strategic Impact
-A **1%p conversion rate lift** in each of these two groups yields nearly **+0.95%p total lift**—without increasing user acquisition volume.
+
+
 
 ---
 
@@ -45,6 +48,8 @@ A **1%p conversion rate lift** in each of these two groups yields nearly **+0.95
 To identify behavioural signals that distinguish paying users—and use them to define strategic segments and improve conversion performance.
 
 
+
+
 ---
 
 ## 📊 Key Questions
@@ -55,23 +60,26 @@ To identify behavioural signals that distinguish paying users—and use them to 
 4. Which user segments offer the best balance of conversion potential and feasibility?
 5. What low-cost, high-impact actions can improve trial-to-paid conversion?
 
+
 ---
 
 ## 🧱 Data Schema & Feature Engineering
 
 - **Raw Data Schema**  
    ![Shared Office_raw](https://github.com/user-attachments/assets/c4805fe0-a724-4660-a112-f4926d94f926)
-_Relational schema outlining how trial events, access logs, and payment outcomes are linked_
+  
+  _Relational schema outlining how trial events, access logs, and payment outcomes are linked_
 
 
-- **Feature Engineering & Data Mart**  
+- **Feature Engineering & Data Mart**   
    ![Shared Office_modified](https://github.com/user-attachments/assets/661636af-942c-4ebc-ab15-659a23ab077e)
- _Final integrated dataset used for segmentation and modelling (user-level granularity)_
+  
+  _Final integrated dataset used for segmentation and modelling (user-level granularity)_
 
 Key engineered features include:
-- `first_visit_delay`: Days from signup to first visit
+- `first_visit_delay`: Days from sign-up to first visit
 - `main_time_block`: Most frequent time block used (e.g., afternoon)
-- `visit_day_type`: Weekday vs weekend usage type
+- `visit_day_type`: Weekday vs weekend usage
 - `avg_density_scaled`: Trial congestion exposure, adjusted by site size
 - `stay_hours`: Total stay time during trial
 
@@ -80,9 +88,6 @@ Key engineered features include:
 
 ## 📉 Funnel Breakdown & Business Context
 
-### 1. Yearly Conversion Trends
-
-This table summarises the trial funnel performance from 2021 to 2023, highlighting changes in user behaviour and conversion effectiveness.
 
 | Year | Signups (avg/mo) | Visitors (avg/mo) | Conversion Rate | Change |
 |------|------------------|-------------------|-----------------|--------|
@@ -92,31 +97,24 @@ This table summarises the trial funnel performance from 2021 to 2023, highlighti
 
 > 📌 **Key Observations**
 - In 2022, **sign-up volume declined** significantly (–17%), indicating weaker top-of-funnel demand.
-- In 2023, **visit volume stabilised**, but the **conversion rate dropped sharply** (–5.5%p), revealing a drop-off **after users experienced the service**.
-- The primary issue is not acquiring users or getting them to visit—it’s **converting visitors into paying customers**.
-
-> ⚠️ Despite ~202 trial visitors per month in 2023, only ~34% converted—  
-  showing that trial engagement **is no longer translating into paid adoption**.
-
-This erosion in post-visit conversion performance sets the stage for behavioural analysis in the next sections.
-
+- In 2023, **visit volume stabilised**, but the **conversion rate dropped sharply**—revealing a drop-off **after users experienced the service**.
+- The primary issue is not attracting users or getting them to visit—it's converting them afterwards.
 
 ---
 
 ## 🦠 Pandemic vs Post-Pandemic Behaviour Shift
 
-To ensure our strategy reflects **current user intent**, we first examined whether behaviours observed during the pandemic (2021–mid 2022) are still valid.  
-May 2022 was used as the split point, when most COVID-related restrictions were lifted.
+To ensure strategy reflects **current user intent**, May 2022 was used as the split point (when most COVID restrictions lifted).
 
 | Period         | Signups (avg/mo) | Conversion Rate | Key Change |
 |----------------|------------------|-----------------|------------|
 | Pandemic       | 335.8            | 41.1%           | Reference |
 | Post-Pandemic  | 279.8            | 36.1%           | ▼5.0%p    |
 
-> 📌 **What Changed After the Pandemic?**
-- 📉 **Trial usage dropped**: Users stayed fewer hours, visited fewer days.
-- 🔁 **Intent shifted**: From passive, exploratory usage → goal-driven visits.
-- ⚙️ **Top predictors changed**: 
+> **What Changed After the Pandemic?**
+- **Trial usage dropped**: Users stayed fewer hours, visited fewer days.
+- **Intent shifted**: From passive, exploratory usage → goal-driven visits.
+- **Top predictors changed**: 
   - Pre-pandemic: Usage quantity (e.g. stay hours, visit days)
   - Post-pandemic: Timing-related features (e.g. weekday visits, 1–2 day delay)
 
@@ -131,10 +129,10 @@ From this point forward, all segmentation and conversion analysis focuses **excl
 
 ## 🧪 Conversion Analysis: What Drives Payment in the Post-Pandemic Era?
 
-o identify which behaviours most influence conversion, we trained an XGBoost classifier on post-pandemic user data.  
+To identify which behaviours most influence conversion, we trained an XGBoost classifier on post-pandemic user data.  
 This model was optimised for **recall (0.72)** to uncover behavioural patterns, not for deployment accuracy.
 
-### 1. Top Behavioural Drivers (Feature Importance)
+#### 1. Top Behavioural Drivers (Feature Importance)
 
 ![feature importance (post-pandemic)](https://github.com/user-attachments/assets/8bb068ea-e0d2-4f9c-aa29-bddcd238d344)  
 _Extracted from user-level features_
@@ -161,7 +159,7 @@ To identify which behaviors most strongly contribute to overall conversion perfo
 1. **Simple Visualization**: Shows segment **volume and raw conversion rate** for easy interpretation  
 2. **Contribution Score Table**: Uses **Z-score of conversion rate × segment share** to measure **impact on total conversion**
 
-#### a. `main_time_block`
+##### a. `main_time_block`
 
 - Afternoon users show the **highest conversion rate (45.7%)** with moderate user volume.
 - Early Morning users represent the **largest segment (42.6%)** but have **low conversion** → negative contribution.
@@ -183,15 +181,15 @@ To identify which behaviors most strongly contribute to overall conversion perfo
 
 
 **Interpretation**  
-- 🔹 **Afternoon users**: Despite being only 13% of users, they show the **highest conversion rate (45.7%)** and largest positive contribution (+0.277).  
-- 🔹 **Morning users**: Large group (32%), but conversion is average → small contribution (+0.020).  
-- 🔸 **Early Morning users**: The **largest group (42.6%)**, but poor performance drags down overall average (–0.287).  
-- 🔸 **Midnight users** also show below-average performance.  
-- 🔹 **Night and evening users** have high conversion rates but very small volume → limited impact.
+-  **Afternoon users**: Despite being only 13% of users, they show the **highest conversion rate (45.7%)** and largest positive contribution (+0.277).  
+-  **Morning users**: Large group (32%), but conversion is average → small contribution (+0.020).  
+-  **Early Morning users**: The **largest group (42.6%)**, but poor performance drags down overall average (–0.287).  
+-  **Midnight users** also show below-average performance.  
+-  **Night and evening users** have high conversion rates but very small volume → limited impact.
   
 ---
 
-#### b. `visit_day_type`
+##### b. `visit_day_type`
 
 - Weekday users are the **largest group (74.1%)** with solid performance → high contribution.
 - Weekend-only users show **low conversion (28.5%)** and drag down average.
@@ -216,7 +214,7 @@ To identify which behaviors most strongly contribute to overall conversion perfo
 
 ---
 
-#### c. `first_visit_delay`
+##### c. `first_visit_delay`
 
 - Delayed visits (1–2 days after signup) show **higher intent and conversion**.
 - Same-day visits have high volume but **lowest conversion**, lowering overall performance.
@@ -235,8 +233,8 @@ To identify which behaviors most strongly contribute to overall conversion perfo
 
 
 **Interpretation**  
-- 🔹 **Users who visited 1–2 days after signup** show **higher conversion rates (~39%)** with strong positive contribution.  
-- 🔸 **Same-day visitors (0 days delay)**: Large group (54%) but lowest conversion (31.9%) → most negative contributor (–0.386)
+-  **Users who visited 1–2 days after signup** show **higher conversion rates (~39%)** with strong positive contribution.  
+-  **Same-day visitors (0 days delay)**: Large group (54%) but lowest conversion (31.9%) → most negative contributor (–0.386)
 
 ---
 
@@ -257,7 +255,7 @@ Contribution score for each group is calculated separately in Section 7.3.
 ## 🎯 Target Segment Strategy
 Based on contribution analysis, two operationally distinct user groups were identified as strategic targets:
 
-### ✅ High-ROI Segment
+#### ✅ High-ROI Segment
 **Definition**:
 - `main_time_block ∈ {morning, afternoon}`  
 - `visit_day_type ∈ {weekday, both}`
@@ -277,7 +275,7 @@ Based on contribution analysis, two operationally distinct user groups were iden
 - Follow up with satisfaction nudges or retention offers
 
 
-### ⚠️ At-Risk Segment
+#### ⚠️ At-Risk Segment
 **Definition**:
 - `main_time_block ∈ {early_morning, evening, night, midnight}`  
 - OR `visit_day_type = weekend`
