@@ -100,7 +100,7 @@ Created a user-level dataset optimised for behavioural segmentation and predicti
 | Metric              | Value   | Interpretation                                     |
 |---------------------|---------|----------------------------------------------------|
 | **Visit Churn**     | 32.1%   | 1 in 3 trial sign-ups never visit the space        |
-| **Conversion Churn**| 62.1%   | 6 in 10 trial visitors do not convert to payment   |
+| **Conversion Churn**| 44.1%   | 4 in 10 trial visitors do not convert to payment   |
 
 > 💡 **Insight:**  
 > The majority of churn occurs **after the visit**.  
