@@ -6,18 +6,18 @@ This project analyses behavioural log data from a shared office provider to unco
 
 ### 🧭 TL;DR (Quick Summary)
 
-#### ❗ Conversion Issue  
+#### 1. Conversion Issue  
 From 2021 to 2023, the trial-to-paid conversion rate fell from **53% to 23%**, despite stable trial sign-ups.  
 The key bottleneck lies **after the first visit**, not before — indicating a product or experience-related friction rather than a marketing issue.
 
-#### 🔍 Behavioural Shift  
+#### 2.  Behavioural Shift  
 Conversion signals shifted over time:  
 - **Pandemic era**: Usage volume (longer stays, more visits) was key  
 - **Post-pandemic**: Behavioural intent signals matter more, such as:  
   - **Visit timing (weekday/afternoon)**  
   - **Delayed first visit (1–2 days)**
 
-#### ✅ Key Segment Insights
+#### 3.  Key Segment Insights
 
 | Segment         | Characteristics                          | Conversion | Strategic Implication                        |
 |-----------------|-------------------------------------------|------------|-----------------------------------------------|
@@ -25,8 +25,22 @@ Conversion signals shifted over time:
 | **Out-of-Hours**| Night, Early Morning, or Weekend          | 33.9%      | Underperforming but large group → Target with low-cost operational fixes |
 
 ---
+### 1. Project Overview
 
-### 📂 Project Scope & Data
+#### 1.1 Context  
+The study uses log-level data from a commercial shared office provider, capturing user registrations, visits, access records, and payment outcomes between May 2021 and December 2023.
+
+#### 1.2 Objective  
+To identify which user behaviours most strongly correlate with conversion and propose practical ways to increase paid user conversion.
+
+#### 1.3 Scope  
+Analysis includes:
+- Funnel performance across stages
+- Pandemic vs post-pandemic behavioural changes
+- Feature importance and segment contribution
+- Actionable strategies targeting high-impact user groups
+
+### 2. Project Scope & Data
 
 - **Period**: May 2021 – Dec 2023  
 - **Target**: Free trial users (3-day access, first-time only)  
@@ -43,14 +57,14 @@ Conversion signals shifted over time:
 
 ---
 
-### 🗂️ Data Schema & Feature Engineering
+### 3. Data Schema & Feature Engineering
 
-#### Raw Data Schema  
+#### 3.1 Raw Data Schema  
 _Tracks the relationship between trial sign-up, behaviour, and payment outcomes._
 
 <img src="https://github.com/user-attachments/assets/c4805fe0-a724-4660-a112-f4926d94f926" width="500"/>
 
-#### Feature Engineering  
+#### 3.1 Feature Engineering  
 _Created a user-level dataset optimised for behavioural segmentation and prediction._
 
 <img src="https://github.com/user-attachments/assets/661636af-942c-4ebc-ab15-659a23ab077e" width="500"/>
@@ -64,9 +78,9 @@ _Created a user-level dataset optimised for behavioural segmentation and predict
 
 ---
 
-### Funnel Overview & Business Context
+### 4. Funnel Overview & Business Context
 
-#### 📉 Funnel Drop-off Summary (2021–2023)
+#### 4.1 Funnel Drop-off Summary (2021–2023)
 
 | Year | Sign-ups (avg/mo) | Visitors (avg/mo) | Conversion Rate | Change   |
 |------|-------------------|-------------------|------------------|----------|
@@ -79,13 +93,12 @@ _Created a user-level dataset optimised for behavioural segmentation and predict
 > This confirms that **experience post-visit, not acquisition volume, is the core issue**.  
 > → Strategy must shift from “bring more users” to **“convert the right ones better”**.
 
----
 
-#### 📊 Dashboard: Funnel Churn & Conversion Trend
+#### 4.2 Dashboard: Funnel Churn & Conversion Trend
 
 <img src="https://github.com/user-attachments/assets/459fcc23-ca9d-4117-901b-019cff641b0e" width="700"/>
 
-##### 🔄 Key Churn Rates
+##### 4.3 Key Churn Rates
 
 | Metric              | Value   | Interpretation |
 |---------------------|---------|----------------|
@@ -96,9 +109,8 @@ _Created a user-level dataset optimised for behavioural segmentation and predict
 > Most of the churn happens **after the trial visit**.  
 > This highlights post-visit friction, indicating the need for improvements in onboarding, space experience, or follow-up strategies.
 
----
 
-##### 📈 Monthly Conversion Rate Trend (2021.06–2023.12)
+#####  4.4 Monthly Conversion Rate Trend (2021.06–2023.12)
 
 - **2021-06**: 52.96%  
 - **2023-11**: 23.17%  
@@ -111,7 +123,7 @@ _Created a user-level dataset optimised for behavioural segmentation and predict
 
 ---
 
-##### 📊 3-Day Trial Sign-ups vs. Conversion Trend
+##### 4.5 3-Day Trial Sign-ups vs. Conversion Trend
 
 - Sign-ups remain volatile but generally steady  
 - Conversions **continue to decline**, showing widening gap
@@ -122,9 +134,9 @@ _Created a user-level dataset optimised for behavioural segmentation and predict
 
 ---
 
-### 🦠 Behavioural Shift: Pandemic vs Post-Pandemic
+### 5. Behavioural Shift: Pandemic vs Post-Pandemic
 
-#### Split: May 2022 (when COVID restrictions were lifted)
+#### 5.1 Split: May 2022 (when COVID restrictions were lifted)
 
 | Period         | Sign-ups (avg/mo) | Conversion Rate | Change |
 |----------------|-------------------|------------------|--------|
@@ -140,14 +152,13 @@ _Created a user-level dataset optimised for behavioural segmentation and predict
 
 ---
 
-### Conversion Driver Deep Dive (Post-Pandemic Only)
+### 6. Conversion Driver Deep Dive (Post-Pandemic Only)
 
-#### Behavioural signals were analysed using:
+#### 6.1 Behavioural signals were analysed using:
 - XGBoost (for feature importance)
 - Z-score × Volume contribution
 - Logistic regression (for directionality)
 
----
 
 #### Top Predictive Features (XGBoost)
 
@@ -160,7 +171,7 @@ _Created a user-level dataset optimised for behavioural segmentation and predict
 
 ---
 
-#### Contribution Analysis by Feature (Z-score × Volume Share)
+#### 6.2 Contribution Analysis by Feature (Z-score × Volume Share)
 
 ##### a. `main_time_block`
 
@@ -176,7 +187,7 @@ _Created a user-level dataset optimised for behavioural segmentation and predict
 > The Early Morning group is the largest segment but underperforms significantly.  
 > Optimising this time slot experience could unlock large conversion gains.
 
----
+
 
 ##### b. `visit_day_type`
 
@@ -191,7 +202,6 @@ _Created a user-level dataset optimised for behavioural segmentation and predict
 > Weekend users represent a hidden loss centre.  
 > Improving weekend experience or rerouting them toward weekday slots could boost overall performance.
 
----
 
 ##### c. `first_visit_delay`
 
@@ -207,7 +217,7 @@ _Created a user-level dataset optimised for behavioural segmentation and predict
 
 ---
 
-#### Combined Segment Analysis
+#### 6.3 Combined Segment Analysis
 
 <img src="https://github.com/user-attachments/assets/5f7670b6-4b8c-45b3-9f6b-fdca497d5de0" width="500"/>
 
@@ -217,9 +227,9 @@ _Created a user-level dataset optimised for behavioural segmentation and predict
 
 ---
 
-### Strategic Target Segments
+### 7.Strategic Target Segments
 
-#### ✅ High-ROI Group
+#### 7.1 High-ROI Group
 
 | Segment Definition                      | Users | Conversion |
 |-----------------------------------------|--------|------------|
@@ -230,7 +240,7 @@ _Created a user-level dataset optimised for behavioural segmentation and predict
 > Optimise onboarding, reinforce workspace value, and automate delayed-visit nudges.
 
 
-#### ⚠️ At-Risk Group
+#### 7.2 At-Risk Group
 
 | Segment Definition                   | Users | Conversion |
 |--------------------------------------|--------|------------|
@@ -242,9 +252,9 @@ _Created a user-level dataset optimised for behavioural segmentation and predict
 > - Scheduled follow-ups  
 > - Minimal night/weekend support
 
----
 
-#### 📈 Impact Simulation
+
+#### 7.3 Impact Simulation
 
 | Group          | Users | Baseline CR | +1%p Gain | Conversion Uplift |
 |----------------|--------|--------------|-----------|--------------------|
@@ -258,7 +268,7 @@ _Created a user-level dataset optimised for behavioural segmentation and predict
 
 ---
 
-### Final Takeaways
+### 8. Final Takeaways
 
 - 📉 The **main conversion bottleneck lies post-visit**, not in marketing or acquisition  
 - 🟦 Weekday + delayed visit users convert well — **focus efforts here**  
