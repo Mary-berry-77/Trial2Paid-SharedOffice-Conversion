@@ -1,8 +1,10 @@
-# 📘 Shared Office Trial Conversion Analysis
+#  Shared Office Trial Conversion Analysis
 
 This project analyses behavioural log data from a shared office provider to uncover key drivers of trial-to-paid conversion and proposes actionable strategies based on user segmentation.
 
-Full Report 
+Full Version can be found here
+
+
 ---
 
 ## 🧭 TL;DR (Quick Summary)
