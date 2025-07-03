@@ -1,21 +1,21 @@
-# 📘 Shared Office Trial Conversion Analysis
+## 📘 Shared Office Trial Conversion Analysis
 
 This project analyses behavioural log data from a shared office provider to uncover key drivers of trial-to-paid user conversion and proposes actionable strategies based on user segmentation.
 
 ---
 
-## 🧭 TL;DR (Quick Summary)
+### 🧭 TL;DR (Quick Summary)
 
-### ❗ Conversion Issue
+#### ❗ Conversion Issue
 From 2021 to 2023, the trial-to-paid conversion rate fell from **53% to 23%**, despite stable trial sign-ups.  
 The key bottleneck lies **after their visit**, not before.
 
-### 🔍 Behavioural Shift
+#### 🔍 Behavioural Shift
 Feature analysis reveals a shift in conversion drivers:
 - **Pandemic era**: Usage quantity (longer stays, more visits)
 - **Post-pandemic**: Intent signals like **visit timing (weekday/afternoon)** and **delayed first visit (1–2 days)**
 
-### ✅ Key Segment Insights
+#### ✅ Key Segment Insights
 
 | Segment | Characteristics | Conversion | Strategic Implication |
 |--------|------------------|------------|------------------------|
@@ -24,7 +24,7 @@ Feature analysis reveals a shift in conversion drivers:
 
 ---
 
-## 📂 Project Scope & Data
+### 📂 Project Scope & Data
 
 - **Data Period**: May 2021 – Dec 2023  
 - **Target Users**: Free trial users (3-day access, first-time only)  
@@ -44,7 +44,7 @@ To identify behavioural signals that distinguish paying users — and use them t
 
 ---
 
-## 📊 Key Questions
+### 📊 Key Questions
 
 1. Where in the trial funnel do users most frequently drop off?  
 2. What behavioural traits most strongly differentiate paying users from non-paying users?  
@@ -54,17 +54,19 @@ To identify behavioural signals that distinguish paying users — and use them t
 
 ---
 
-## 🧱 Data Schema & Feature Engineering
+### Data Schema & Feature Engineering
 
-### 🔗 Raw Data Schema  
+#### Raw Data Schema  
 _Trial events, access logs, and payment outcomes relationship_
 
-![Shared Office_raw](https://github.com/user-attachments/assets/c4805fe0-a724-4660-a112-f4926d94f926)
+<img src="https://github.com/user-attachments/assets/c4805fe0-a724-4660-a112-f4926d94f926" width="600"/>
 
-### 🛠 Feature Engineering & Data Mart  
+
+#### Feature Engineering & Data Mart  
 _Final user-level dataset for segmentation and modelling_
 
-![Shared Office_modified](https://github.com/user-attachments/assets/661636af-942c-4ebc-ab15-659a23ab077e)
+<img src="https://github.com/user-attachments/assets/661636af-942c-4ebc-ab15-659a23ab077e" width="600"/>
+
 
 Key engineered features:
 - `first_visit_delay`: Days from sign-up to first visit  
@@ -75,7 +77,7 @@ Key engineered features:
 
 ---
 
-## 📉 Funnel Breakdown & Business Context
+### 📉 Funnel Breakdown & Business Context
 
 | Year | Sign-ups (avg/mo) | Visitors (avg/mo) | Conversion Rate | Change |
 |------|-------------------|-------------------|-----------------|--------|
@@ -89,23 +91,31 @@ Key engineered features:
 
 ---
 
-## 🦠 Pandemic vs Post-Pandemic Behaviour Shift
+### 🦠 Pandemic vs Post-Pandemic Behaviour Shift
 
-Split: **May 2022** (when COVID restrictions were lifted)
+Split point: **May 2022**, when most COVID restrictions were lifted
 
-| Period         | Sign-ups (avg/mo) | Conversion Rate | Key Change |
-|----------------|-------------------|-----------------|------------|
-| Pandemic       | 335.8             | 41.1%           | Reference |
-| Post-Pandemic  | 279.8             | 36.1%           | ▼5.0%p    |
+| Period         | Sign-ups (avg/mo) | Conversion Rate | Change |
+|----------------|-------------------|-----------------|--------|
+| Pandemic       | 335.8             | 41.1%           | —      |
+| Post-Pandemic  | 279.8             | 36.1%           | ▼5.0%p |
 
-![feature importance difference (pandemic vs post-pandemic)](https://github.com/user-attachments/assets/0336d8e5-ea6f-47ef-add9-d89db3d151da)
+<img src="https://github.com/user-attachments/assets/0336d8e5-ea6f-47ef-add9-d89db3d151da" width="600"/>
+
+> 🔄 **Behavioural Shift**  
+> • **Pandemic**: Longer stays, more frequent visits  
+> • **Post-pandemic**: Time-driven and goal-oriented usage (e.g. weekday/afternoon visits, delayed start)
 
 > 🧭 **Strategic Implication**  
-Post-pandemic user intent is more autonomous → all modelling and segmentation focus **solely** on post-pandemic data.
+Post-pandemic user intent is more autonomous and purposeful.  
+→ All modelling and segmentation henceforth focus **solely on post-pandemic data**,  
+where behavioural patterns are clearer and more stable.
+
+
 
 ---
 
-## 🧪 Conversion Analysis: What Drives Payment in the Post-Pandemic Era?
+### 🧪 Conversion Analysis: What Drives Payment in the Post-Pandemic Era?
 
 We trained an XGBoost classifier on post-pandemic data (optimised for recall, not deployment).
 
@@ -119,9 +129,9 @@ We trained an XGBoost classifier on post-pandemic data (optimised for recall, no
 
 ---
 
-## 2. Behavioural Contribution Analysis
+### 2. Behavioural Contribution Analysis
 
-### a. `main_time_block`
+#### a. `main_time_block`
 
 ![main time block - user count and conversion rate](https://github.com/user-attachments/assets/91ed6065-4b61-4730-a02b-8de0068df98f)
 
@@ -135,7 +145,7 @@ We trained an XGBoost classifier on post-pandemic data (optimised for recall, no
 
 ---
 
-### b. `visit_day_type`
+#### b. `visit_day_type`
 
 ![visit day type - user count and conversion rate](https://github.com/user-attachments/assets/d58c0741-ab56-4b78-ac03-e82f6134b961)
 
